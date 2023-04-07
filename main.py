@@ -6,16 +6,26 @@ from telegram import Bot
 from telegram.ext import Updater, CommandHandler
 
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
+
 openweathermap_api_key = "YOUR OPENWEATHERMAP API KEY"
 telegram_bot_api_key = "YOUR TELEGRAM BOT API KEY"
 
 def welcome(update, context):
+    """
+    Welcome message.
+    """
     context.bot.send_message(chat_id=update.effective_chat.id, text=f"Welcome to your weather assistant! \nPlease type /weather followed by your city. E.g /weather London")
 
 def help(update, context):
+    """
+    Help message.
+    """
     context.bot.send_message(chat_id=update.effective_chat.id, text=f"Please type /weather followed by your city. E.g /weather London")
 
 def get_coordinates(city, country_code):
+    """
+    Returns the city coordinates.
+    """
     url = f"http://api.openweathermap.org/geo/1.0/direct?q={city},{country_code}&limit=1&appid={openweathermap_api_key}"
     response = requests.get(url, params={"appid": openweathermap_api_key})
     data = json.loads(response.text)
@@ -24,6 +34,9 @@ def get_coordinates(city, country_code):
     return coordinates
 
 def get_weather(update, context):
+    """
+    Returns the city weather and temperature.
+    """
     args = context.args
     logging.debug(f"Parameters for request: {args}")
 
