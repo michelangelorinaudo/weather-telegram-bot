@@ -26,7 +26,7 @@ def get_coordinates(city, country_code):
     """
     Returns the city coordinates.
     """
-    url = f"http://api.openweathermap.org/geo/1.0/direct?q={city},{country_code}&limit=1&appid={openweathermap_api_key}"
+    url = f"https://api.openweathermap.org/geo/1.0/direct?q={city},{country_code}&limit=1"
     response = requests.get(url, params={"appid": openweathermap_api_key})
     data = json.loads(response.text)
     coordinates = {"latitude": data[0]["lat"], "longitude": data[0]["lon"]}
@@ -44,7 +44,7 @@ def get_weather(update, context):
 
     latitude = city_coordinates["latitude"]
     longitude = city_coordinates["longitude"]
-    url = f"https://api.openweathermap.org/data/2.5/weather?lat={latitude}&lon={longitude}&appid={openweathermap_api_key}"
+    url = f"https://api.openweathermap.org/data/2.5/weather?lat={latitude}&lon={longitude}"
     response = requests.get(url, params={"appid": openweathermap_api_key})
     data = json.loads(response.text)
     logging.debug(f"Request response: {data}")
