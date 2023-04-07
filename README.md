@@ -6,7 +6,7 @@ This is a simple, easy to use, telegram bot that uses the OpenWeatherMap API to 
 
 In order to use this API, it's required to create an account on the OpenWeatherMap official website and generate an API key.
 It's also required to create a Telegram bot with a corresponding API key.
-The program sould work with Python 3.x versions.
+The program should work with Python 3.x versions.
 
 <h2>Instructions</h2>
 
