@@ -14,13 +14,13 @@ def welcome(update, context):
     """
     Welcome message.
     """
-    context.bot.send_message(chat_id=update.effective_chat.id, text=f"Welcome to your weather assistant! \nPlease type /weather followed by your city. E.g /weather London")
+    context.bot.send_message(chat_id=update.effective_chat.id, text=f"Welcome to your weather assistant! \nPlease type /weather followed by your city. E.g /weather London GB")
 
 def help(update, context):
     """
     Help message.
     """
-    context.bot.send_message(chat_id=update.effective_chat.id, text=f"Please type /weather followed by your city. E.g /weather London")
+    context.bot.send_message(chat_id=update.effective_chat.id, text=f"Please type /weather followed by your city. E.g /weather London GB")
 
 def get_coordinates(city, country_code):
     """
@@ -47,7 +47,7 @@ def get_weather(update, context):
     url = f"https://api.openweathermap.org/data/2.5/weather?lat={latitude}&lon={longitude}&appid={openweathermap_api_key}"
     response = requests.get(url, params={"appid": openweathermap_api_key})
     data = json.loads(response.text)
-    logging.info(f"Request response: {data}")
+    logging.debug(f"Request response: {data}")
     weather = data["weather"][0]["description"]
     temp = round(data["main"]["temp"] - 273.15, 1)
     context.bot.send_message(chat_id=update.effective_chat.id, text=f"The weather in {args[0]} is {weather} with a temperature of {temp}°C")
