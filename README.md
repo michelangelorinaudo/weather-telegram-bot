@@ -11,7 +11,7 @@ The program should work with Python 3.x versions.
 <h2>Instructions</h2>
 
 - Replace values for `openweathermap_api_key` and `telegram_bot_api_key` with your own API keys.
-- Open your prefered terminal window.
+- Open your preferred terminal window.
 - Change to the same directory of the `main.py` file.
 - Run `python3 main.py`.
 - On your telegram bot chat, type `/start` to start the conversation, `/stop` to stop it.
