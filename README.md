@@ -14,6 +14,6 @@ The program should work with Python 3.x versions.
 - Open your preferred terminal window.
 - Change to the same directory of the `main.py` file.
 - Run `python3 main.py`.
-- On your telegram bot chat, type `/start` to start the conversation.
+- On your telegram bot chat, type `/start` to start the conversation, `/help` to get help instructions.
 - To search for a city, type `/weather` followed by the city and country code. For example, `/weather Paris FR` will return the weather and temperature for the city of Paris, France.
 - Stop the conversation using Telegram or your terminal, by interrupting the script execution.
